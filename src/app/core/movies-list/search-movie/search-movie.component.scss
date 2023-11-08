@@ -1,0 +1,40 @@
+.search-movie-input{
+  height: 56px;
+  border: 1px solid #716e6e;
+  color: black;
+  font-size: 15px;
+  width: 50%;
+}
+
+
+.btn-submit{
+  height: 56px;
+  border-radius: 0;
+  width: 55px;
+  background: #dc4666;
+  border: #dc4666;
+}
+
+.container-group {
+  display: flex;
+  gap: 20px;
+}
+
+@media screen and (max-width: 720px) {
+  .container-group {
+    display: block;
+  }
+  .search-group {
+    width: 100% !important;
+    margin-bottom: 14px;
+  }
+  mat-form-field {
+    width: 30%;
+    margin-right: 14px;
+  }
+}
+
+.search-group {
+  width: 30%;
+}
+

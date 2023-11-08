@@ -1,0 +1,16 @@
+<div class="movies-list">
+  <search-movie></search-movie>
+  <ng-container>
+    <div class="row">
+      <movie-item
+        class="col-md-2 listing__items"
+        *ngFor="let movie of movies$ | async"
+        [movie]="movie"
+      >
+      </movie-item>
+    </div>
+  </ng-container>
+</div>
+
+
+

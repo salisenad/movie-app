@@ -1,0 +1,84 @@
+<div class="hero" *ngIf="movie$ | async as movie">
+  <div class="backdrop">
+      <div class="lazyloaded">
+        <img class="lazyload image" src="{{ movie.Poster }}">
+      </div>
+  </div>
+  <div class="pane">
+    <div>
+      <div class="name">{{ movie.Title }}</div>
+      <div class="meta">
+        <div class="info">
+          <span class="rate"><i class="material-icons">star</i><span>{{movie.imdbRating}}</span> /10</span>
+          <span> {{movie.imdbVotes}}</span>
+          <span>{{movie.Released | date: 'yyyy' }}</span>
+        </div>
+      </div>
+      <div class="desc">{{ movie?.Plot }}</div>
+      <button type="button" class="button button--icon trailer" (click)="openImdbUrl(movie.imdbID)">
+        <span class="mr-2"><img src="assets/images/play.svg"></span>
+        <span class="txt">Play The Movie</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" *ngIf="movie$ | async as movie">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-tab-group class="mt-5 mb-5" mat-align-tabs="center" animationDuration="5000ms">
+        <mat-tab label="Overview" >
+          <div class="listing-space info__movies">
+            <div class="left">
+              <div class="poster">
+                <img src="{{ movie.Poster }}">
+              </div>
+            </div>
+            <div class="right">
+              <div class="overview">
+                <h2 class="title">Storyline</h2>
+                <div>{{movie.Plot}}</div>
+              </div>
+              <div class="stats">
+                <ul class="nolist">
+                  <li>
+                    <div class="label">Released</div>
+                    <div class="value">{{ movie.Released }}</div>
+                  </li>
+                  <li>
+                    <div class="label">Actors</div>
+                    <div class="value">{{ movie.Actors }}</div>
+                  </li>
+                  <li>
+                    <div class="label">Runtime</div>
+                    <div class="value">{{ movie.Runtime }}</div>
+                  </li>
+                  <li>
+                    <div class="label">Budget</div>
+                    <div class="value">$25,000,000</div>
+                  </li>
+                  <li>
+                    <div class="label">Revenue</div>
+                    <div class="value">$28,341,469</div>
+                  </li>
+                  <li *ngIf="movie.Genre">
+                    <div class="label">Genre</div>
+                    <div class="comma_"><a>{{ movie.Genre }}</a></div>
+                  </li>
+                  <li>
+                    <div class="label">Status</div>
+                    <div class="value">Released</div>
+                  </li>
+                  <li *ngIf="movie?.Language">
+                    <div class="label">Language</div>
+                    <div class="comma_"><a>{{ movie?.Language }}</a></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

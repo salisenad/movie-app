@@ -1,0 +1,24 @@
+<div>
+  <div class="listing-item-style">
+    <div class="overlay">
+      <div class="hover" (click)="openImdbUrl(movie.imdbID)">
+        <i class="material-icons">play_arrow</i> PLAY NOW
+      </div>
+    </div>
+    <img
+      *ngIf="movie.Poster"
+      class="img-movie"
+      src="{{movie.Poster ? movie.Poster : 'assets/images/default-movie.png'}}"
+      [alt]="movie.Title"
+    >
+    <h6>{{ movie.Title }}</h6>
+    <p class="rate"><i class="material-icons">star</i><span>{{movie.imdbRating ? movie.imdbRating : 8.5}}  /10</span></p>
+    <a class="movie-details" routerLink="movie-details/{{movie.imdbID}}">
+      Movie details >
+    </a>
+    <p class="year">
+      <span>{{movie.Year | date: 'yyyy'}}</span>
+    </p>
+  </div>
+</div>
+
